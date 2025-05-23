@@ -6,7 +6,6 @@ const cors = require("cors");
 const { connectToMongo } = require("./connection");
 
 const urlRoute = require("./routes/url");
-const URL = require("./models/url");
 const fetchShortID = require("./models/fetchShortID");
 
 const dotenv = require("dotenv");
@@ -40,7 +39,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/:shortId',fetchShortID);
-
 
 // API route for URL shortening
 app.use("/url", urlRoute);

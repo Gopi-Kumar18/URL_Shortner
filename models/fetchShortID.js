@@ -1,3 +1,5 @@
+const URL = require('./url');
+
 const fetchShortID = async (req, res) => {
     const shortId = req.params.shortId;
     console.log(`Received shortId: ${shortId}`);
