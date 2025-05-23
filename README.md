@@ -12,6 +12,7 @@ URL_SHORTNER/
 │   └── url.js
 ├── models/
 │   └── url.js
+|   └── fetchShortID.js
 ├── node_modules/
 ├── routes/
 │   └── url.js
@@ -19,8 +20,10 @@ URL_SHORTNER/
 │   ├── footer.css
 │   └── style-1.css
 ├── views/
-│   ├── partials/
+│   ├── partials/footer.ejs
 │   └── index.ejs
+├── .env
+├── .gitignore
 ├── connection.js
 ├── github.png
 ├── index.js
@@ -39,7 +42,7 @@ URL_SHORTNER/
 * Generates unique short links
 * Redirects short URLs to original URLs
 * Uses EJS for server-side rendering
-* Simple and responsive CSS interface
+* Made With CSS
 
 ---
 
@@ -138,4 +141,5 @@ Project Pics:-
 ##  💻 Developed By:
 
 [Gopi Kumar] – Student & Developer
+
 Feel free to reach out with suggestions or contributions.
