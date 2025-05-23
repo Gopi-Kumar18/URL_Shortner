@@ -1,0 +1,111 @@
+.footer {
+    background: linear-gradient(50deg, lightyellow, transparent);
+    color: #ffffff;
+    padding: 2rem 0;
+    width: 97%;
+    margin: 20px 0 20px 0 ;
+    text-align: center;
+    border-radius: 5px; 
+}
+
+.social-section {
+    margin-bottom: 2rem;
+}
+
+.footer-heading {
+    color: #00ffff;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.social-icon {
+    width: 28px;
+    height: 28px; 
+     transition: all 0.3s ease;
+}
+
+
+.footer-bottom {
+    border-top: 1px solid #444444; 
+     padding-top: 1.5rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* .footer-links a {
+    color: black;     
+    text-decoration: none;
+    transition: all 0.3s ease;
+} */
+
+/* .footer-links a:hover {
+color: #00ffff;
+} */
+
+.gradient-text {
+  background: linear-gradient(90deg, #007cf0, #7928ca, #ff0080);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  filter: 
+    drop-shadow(0 0 0 #007cf0)
+    drop-shadow(0 0 0 #7928ca)
+    drop-shadow(0 0 0 #ff0080);
+  
+  transition: filter 0.3s ease;
+}
+
+.gradient-text:hover {
+  filter: 
+    drop-shadow(-10px 0 20px #007cf0)  
+    drop-shadow(0 0 20px #7928ca)      
+    drop-shadow(10px 0 20px #ff0080);  
+
+  transform: scale(1.1);
+
+}
+
+.separator {
+    color: #666;
+}
+
+a[href*="twitter.com"] .social-icon {
+    fill: black;
+}
+
+
+a[href*="github.com"] .social-icon {
+    fill: black;
+}
+
+
+a[href*="linkedin.com"] .social-icon {
+    fill: #0A66C2;
+}
+
+
+.social-icon:hover {
+ filter: 
+    drop-shadow(0 0 10px red)
+        drop-shadow(0 0 20px green)
+        drop-shadow(0 0 30px blue); 
+
+  
+  transform: scale(1.1);
+}
+
+

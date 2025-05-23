@@ -1,0 +1,211 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, lightyellow, lightblue); ;
+    color: #001f3f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.container {
+    background-color: #fffdf9;
+    padding: 3rem;
+    border-radius: 2rem;
+    /* max-width: 600px; */
+    width: 90%;
+    text-align: left;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: #444;
+    margin-bottom: 1.5rem;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #0052cc;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #003d99;
+}
+
+#shortUrl {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+}
+
+/* style-1.css */
+.gradient-text {
+    background: linear-gradient(45deg, orange, darkviolet, #FFC107 );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+
+
+.hero {
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+    background: transparent /* optional soft bg */
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #012a4a;
+}
+
+.hero .subtitle {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+/* Ensure the main container doesn’t overlap */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #fffefb;
+    border-radius: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+/* Result Container */
+.result-container {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.url-display {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Copy Button */
+.copy-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    background: linear-gradient(75deg, #00ffff, #ff00ff);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5),
+                0 0 25px rgba(255, 0, 255, 0.3);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    animation: neonPulse 1.5s infinite alternate;
+}
+
+.copy-button:hover {
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.8),
+                0 0 35px rgba(255, 0, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.copy-button.copied {
+    /* background: linear-gradient(135deg, #4CAF50, #45a049); */
+    background: linear-gradient(75deg, #00ff00, #00cc00);
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.7);
+    animation: none;
+}
+
+@keyframes neonPulse {
+    from {
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.5),
+                    0 0 20px rgba(255, 0, 255, 0.3);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.8),
+                    0 0 30px rgba(255, 0, 255, 0.5);
+    }
+}
+
+.copy-icon {
+     filter: drop-shadow(0 0 2px #ffffff);
+}
+
+/* Social Sharing */
+.social-sharing {
+    margin-top: 2rem;
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-3px);
+}
+
+.social-icons img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+

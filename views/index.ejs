@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="/styles/style-1.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+</head>
+<body>
+    <section class="hero">
+        <h1>Instant, Effortless URL Shortening</h1>
+
+        <p class="subtitle">Save it once, find it forever—your links reimagined.</p>
+    </section>
+
+    <div class="container">
+        <h1>Shorten your link</h1>
+        <br>
+        <form action="/url" method="POST" id="urlForm">
+            <label for="longUrl">Paste your long link here</label>
+            <br>
+            <input type="text" id="longUrl" placeholder="https://example.com/my-long-url" required />
+            <button type="submit">
+                Shorten Your URL <span>&rarr;</span>
+            </button>
+        </form>
+        <div id="shortUrl"></div>
+
+        <div class="social-sharing" id="socialSharing" style="display: none;">
+    <span>Share via:</span>
+    <div class="social-icons">
+        <a class="whatsapp" target="_blank">
+            <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp"/>
+        </a>
+        <a class="linkedin" target="_blank">
+            <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn"/>
+        </a>
+        <a class="telegram" target="_blank">
+            <img src="https://img.icons8.com/color/48/000000/telegram-app.png" alt="Telegram"/>
+        </a>
+    </div>
+
+</div>
+    </div>
+
+
+    <script>
+        document.getElementById('urlForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const longUrl = document.getElementById('longUrl').value;
+            const response = await fetch('/url', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ url: longUrl })
+            });
+
+           if (response.ok) {
+            const data = await response.json();
+            const shortUrl = `http://localhost:8000/${data.id}`;
+             document.getElementById('shortUrl').innerHTML = `
+        <div class="result-container">
+            <span class="result-text">Shortened URL:</span>
+            <div class="url-display">
+                <a href="${shortUrl}" target="_blank" class="gradient-text">${shortUrl}</a>
+                <button class="copy-button" data-url="${shortUrl}">
+                    <span class="copy-text">Copy</span>
+                    <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M8 4v12h12V4H8zM6 2h16v16H6V2zM4 6H2v18h18v-2"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    `;
+
+    // Show social sharing buttons
+    const socialSharing = document.getElementById('socialSharing');
+    socialSharing.style.display = 'block';
+    
+    // Set up social sharing links
+    const encodedUrl = encodeURIComponent(shortUrl);
+    socialSharing.querySelector('.whatsapp').href = `https://api.whatsapp.com/send?text=${encodedUrl}`;
+    socialSharing.querySelector('.linkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
+    socialSharing.querySelector('.telegram').href = `https://t.me/share/url?url=${encodedUrl}`;
+
+    // Add copy functionality
+    document.querySelector('.copy-button').addEventListener('click', function() {
+        const urlToCopy = this.dataset.url;
+        navigator.clipboard.writeText(urlToCopy)
+            .then(() => {
+                this.classList.add('copied');
+                const copyText = this.querySelector('.copy-text');
+                copyText.textContent = 'Copied!';
+                setTimeout(() => {
+                    this.classList.remove('copied');
+                    copyText.textContent = 'Copy';
+                }, 2000);
+            })
+            .catch(err => {
+                console.error('Failed to copy:', err);
+                alert('Failed to copy URL');
+            });
+    });
+        } else {
+         document.getElementById('shortUrl').innerHTML = 'Error shortening URL. Please try again.';
+      }
+});
+
+    </script>
+
+    <%- include('partials/footer') %>
+
+</body>
+</html>
