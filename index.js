@@ -1,16 +1,16 @@
 
 const express = require("express");
-const path = require("path");
-
 const cors = require("cors");
-const { connectToMongo } = require("./connection");
+const path = require("path");
+const dotenv = require("dotenv");
 
+const { connectToMongo } = require("./connection");
 const urlRoute = require("./routes/url");
 const fetchShortID = require("./models/fetchShortID");
 
-const dotenv = require("dotenv");
 
 dotenv.config();
+
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -24,6 +24,7 @@ connectToMongo(process.env.MONGODB_URI)
         console.error('MongoDB connection error:', err);
     });
 
+
 // Middleware
 app.use(cors());
 app.use(express.json());
@@ -36,6 +37,14 @@ app.set('views', path.join(__dirname, 'views'));
 // This will render views/index.ejs
 app.get('/', (req, res) => {
     res.render('index'); 
+});
+
+app.get('/privacy-policy', (req, res) => {
+  res.render('privacy-policy');
+});
+
+app.get('/terms-and-conditions', (req, res) => {
+  res.render('terms-and-cons');
 });
 
 app.get('/:shortId',fetchShortID);
