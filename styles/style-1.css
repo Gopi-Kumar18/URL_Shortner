@@ -1,5 +1,5 @@
 
- /* 1. Resets & globals */
+
 *,
 *::before,
 *::after {
@@ -8,7 +8,7 @@
 
 body {
   margin: 0;
-  padding-top: 70px; /* to clear fixed navbar */
+  padding-top: 70px; 
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -55,9 +55,7 @@ h1 {
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
-  background: linear-gradient(90deg, #007cf0, #7928ca, #ff0080);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color : black;
 }
 
 /* 5. Form elements */
