@@ -1,0 +1,53 @@
+<!-- views/contactus.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Us</title>
+  <style>
+    body {
+      font-family: Arial;
+      background-color: #f2f2f2;
+      padding: 30px;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 10px;
+      border: none;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .msg {
+      text-align: center;
+      margin-bottom: 15px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <form action="/send-email" method="POST">
+    <h2>Contact Us</h2>
+    <% if (typeof message !== 'undefined') { %>
+      <p class="msg"><%= message %></p>
+    <% } %>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Write your grievance..." rows="6" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</body>
+</html>

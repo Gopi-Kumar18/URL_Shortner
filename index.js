@@ -7,6 +7,7 @@ const dotenv = require("dotenv");
 const { connectToMongo } = require("./connection");
 const urlRoute = require("./routes/url");
 const fetchShortID = require("./models/fetchShortID");
+const contactRoute = require('./routes/url');
 
 
 dotenv.config();
@@ -28,6 +29,9 @@ connectToMongo(process.env.MONGODB_URI)
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 app.use('/styles', express.static(path.join(__dirname,'styles'))); 
 
 // Set EJS as the view engine
@@ -47,10 +51,24 @@ app.get('/terms-and-conditions', (req, res) => {
   res.render('terms-and-cons');
 });
 
+app.get('/aboutus', (req, res) => {
+  res.render('aboutus');
+});
+
+app.get('/contactus', (req, res) => {
+  res.render('contactus');
+});
+
+app.get('/faqs', (req, res) => {
+  res.render('faqs');
+});
+
+
 app.get('/:shortId',fetchShortID);
 
 // API route for URL shortening
 app.use("/url", urlRoute);
+app.use('/', contactRoute);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
