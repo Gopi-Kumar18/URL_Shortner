@@ -64,6 +64,21 @@ app.get('/faqs', (req, res) => {
   res.render('faqs');
 });
 
+app.get('/login', (req, res) => {
+  res.render('login');
+});
+
+app.get('/signup', (req, res) => {
+  res.render('signup');
+});
+
+app.get('/settings', (req, res) => {
+  res.render('settings');
+});
+
+app.get('/logout', (req, res) => {
+  res.render('logout');
+});
 
 app.get('/:shortId',fetchShortID);
 
